@@ -1,6 +1,6 @@
 <?php
 require_once "apiController.php";
-require_once "../Models/ProductosModel.php";
+require_once "./Models/ProductosModel.php";
 
 class ProductosApiController extends apiController{
     private $model;
@@ -15,6 +15,16 @@ class ProductosApiController extends apiController{
     function getProductos($params=[]){
         $productos = $this->model->getProductos(); //busco todos los productos a la base de datos
         return $this->view->response($productos,200); //lo paso a la view con un estado 200
+    }
+
+    function getProductoDeterminado($params=[]) {
+        $id = $params[":id"];
+        $producto = $this->model->getProductoDeterminado($id);
+        if ($producto != null) {
+            $this->view->response($producto, 200);
+        } else {
+            $this->view->response("El producto con id=" . $id . " no existe. ", 404);
+        }
     }
 
     function editarProducto($params= []){

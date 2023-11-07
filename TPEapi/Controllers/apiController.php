@@ -1,10 +1,8 @@
 <?php
-require_once "./View/apiView.php";
+require_once './Views/apiView.php';
 
 abstract class apiController{
-    protected $model;
     protected $view;
-
     private $data;
 
     public function __construct() {

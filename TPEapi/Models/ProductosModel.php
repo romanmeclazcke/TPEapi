@@ -2,11 +2,6 @@
 require_once "Model.php";
 
 class ProductosModel extends Model {
-    private $db;
-
-    function __construct() {
-        $this->db = new PDO('mysql:host='. MYSQL_HOST .';dbname='. MYSQL_DB .';charset=utf8', MYSQL_USER, MYSQL_PASS);
-    }
 
     function getProductos() {
         $query = $this->db->prepare('SELECT * FROM productos');
