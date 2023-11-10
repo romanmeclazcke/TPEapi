@@ -27,6 +27,16 @@ class ProductosApiController extends apiController{
         }
     }
 
+    function getProductosPorCategoria($params = []) {
+        $idCategoria = $params[":id"];
+        $productos = $this->model->getProductosPorCategoria($idCategoria);
+        if ($productos == null) {
+            $this->view->response("La categoría con id=" . $idCategoria . " no tiene productos asignados o no existe.", 404);
+        } else {
+            $this->view->response($productos, 200);
+        }
+    }
+
     function editarProducto($params= []){
         $idproducto = $params[":id"];
         $producto = $this->model->getProductoDeterminado($idproducto);
@@ -56,11 +66,12 @@ class ProductosApiController extends apiController{
         $material = $body->material;
         $precio = $body->precio;
         $imagen = $body->imagen;
+        $categoria = $body->categoria;
 
         if (empty($nombre) || empty($material) || empty($precio) || empty($imagen)) {
             $this->view->response("Complete todos los campos", 400);
         } else {
-            $id = $this->model->addProducto($nombre, $material, $precio, $imagen);
+            $id = $this->model->addProducto($nombre, $material, $precio, $imagen, $categoria);
             $creado = $this->model->getProductoDeterminado($id);
             $this->view->response($creado, 201);
         }

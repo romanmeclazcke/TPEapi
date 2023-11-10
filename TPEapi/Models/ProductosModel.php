@@ -19,9 +19,17 @@ class ProductosModel extends Model {
         return $producto;
     }
 
-    function addProducto($nombre, $material, $precio, $imagen) {
-        $query = $this->db->prepare('INSERT INTO productos (nombre, material, precio, imagen) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $material, $precio, $imagen]);
+    function getProductosPorCategoria($idCategoria) {
+        $query = $this->db->prepare('SELECT * FROM productos WHERE categoria=?');
+        $query->execute([$idCategoria]);
+        $productos = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $productos;
+    }
+
+    function addProducto($nombre, $material, $precio, $imagen, $categoria) {
+        $query = $this->db->prepare('INSERT INTO productos (nombre, material, precio, imagen, categoria) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$nombre, $material, $precio, $imagen, $categoria]);
 
         return $this->db->lastInsertId();
     }
