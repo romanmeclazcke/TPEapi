@@ -38,6 +38,7 @@ o eliminar un producto debemos ingresar este token.
 
 ejemplos de datos:   
   ADMIN: email: webadmin@gmail.com  password: admin
+  
   USUARIO: email: rrr@rrr  password: rrr
 
 METHOD:GET  ------  ENDPOINT: http://localhost/TPEapi/api/user/token
