@@ -25,16 +25,12 @@ y lo que hace es ir a buscar todos los productos con ese precio, donde dice "300
   METHOD:GET ------  ENDPOINT: http://localhost/TPEapi/api/producto/?precio=30000
 
 
-5)Crear un producto, en este endpoint lo que permite es crear un producto, pero necesita un token para permitir crearlo, por eso mismo primero hay que hacer uso de otro
-enpoint (ENPOINT Nº 6), que nos entrega un token. luego se debe pegar el token en Autorization => Bearer token, de tener los permisos para crear un producto, y enviar los datos
+5)Crear un producto, en este endpoint lo que permite es crear un producto, pero necesita un token para permitir crearlo, por eso mismo primero hay que hacer uso de otro enpoint (ENPOINT Nº 6), que nos entrega un token. luego se debe pegar el token en Autorization => Bearer token, de tener los permisos para crear un producto, y enviar los datos
 se crea un producto nuevo, sin los permisos de admin no se puede crear el producto.
 
 METHOD:POST  ------  ENDPOINT: http://localhost/TPEapi/api/producto
 
-6)Obtener TOKEN, este endpoint lo que hace es entregar un token al usuario una vez que ingresa sus datos, el ednpoint tendra "datos del usario", y nosotros podremos
-controlar las acciones que este puede realizar dependiendo si es usario normal o admin. para recibir un token hay en el endpoint http://localhost/TPEapi/api/user/token
-ir a Autorization => Basic Auth y ingresar nuestro email y password, una vez echo esto nos provera un token si los datos son correctos. y en las acciones de crear, modificar
-o eliminar un producto debemos ingresar este token.
+6)Obtener TOKEN, este endpoint lo que hace es entregar un token con tiempo limite al usuario una vez que ingresa sus datos, el ednpoint tendra "datos del usario", y nosotros podremos controlar las acciones que este puede realizar dependiendo si es usario normal o admin y tambien verificar que no se halla "vencido" el token. para recibir un token hay que en el endpoint http://localhost/TPEapi/api/user/token ir a Autorization => Basic Auth y ingresar nuestro email y password, una vez echo, esto nos provera un token si los datos son correctos. y en las acciones de crear, modificar o eliminar un producto debemos ingresar este token.
 
 ejemplos de datos:   
   ADMIN: email: webadmin@gmail.com  password: admin
