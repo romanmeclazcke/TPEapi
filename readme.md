@@ -46,16 +46,16 @@ METHOD:GET  ------  ENDPOINT: http://localhost/TPEapi/api/user/token
 
   METHOD:DELETE  ------  ENDPOINT: http://localhost/TPEapi/api/producto/52
 
-8)Actualizar un producto, para esta accion tambien necesitamos ingresar un token como el caso anterior, tambien necesitaremos tener los permisos de admin. este edpoint permite
-  modificar un producto ya creado ingresado los datos en formato json siguiendo la siguente estructura y en la ruta debemos ingresar el id del producto a modificar.
+
+8)Actualizar un producto, para esta accion tambien necesitamos ingresar un token como el caso anterior, tambien necesitaremos tener los permisos de admin. este edpoint permite modificar un producto ya creado ingresado los datos en formato json siguiendo la siguente estructura y en la ruta debemos ingresar el id del producto a modificar.
   
   estructura esperada:
   {
-    "nombre": "Tacho de Aluminio",
-    "material": "Aluminio",
-    "precio": 8900,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_660724-MLA71954567485_092023-F.webp",
-    "categoria": 2
+    "nombre": "String nombre",
+    "material": "String material",
+    "precio": int precio,
+    "imagen": "String url imagen",
+    "categoria": int
   }
 
   donde dice 21, es solo un ejemplo, ahi iria el id del producto a modificar.
