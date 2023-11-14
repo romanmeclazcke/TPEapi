@@ -1,3 +1,8 @@
+INTEGRANTES:
+Roman Meclazcke        email: Romanmeclazcke12345@gmail.com
+Maia Manze Cordeiro    email: maia.manze@gmail.com
+
+
 Documentacion de enponit:
 
 1) Listado de todos los productos con sus caracteristicas.
